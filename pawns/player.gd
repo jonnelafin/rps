@@ -2,6 +2,8 @@ extends "pawn.gd"
 
 onready var Grid = get_parent()
 
+var running = false
+
 func _ready():
 	update_look_direction(Vector2(1, 0))
 
@@ -32,7 +34,10 @@ func _process(_delta):
 	var yset = input_direction.y != 0
 	var sprint_mult = 1;
 	if Input.is_action_pressed("ui_sprint"):
+		running = true
 		sprint_mult = 4;
+	else:
+		running = false
 	if(not (xset and yset)):
 		$Pivot/Sprite/Sprite2.position = Vector2((65)*sprint_mult, 0);
 	else:

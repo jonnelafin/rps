@@ -89,10 +89,10 @@ scale = Vector2( 0.75, 0.75 )
 z_index = 1
 texture = ExtResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="Pivot/Sprite/Sprite2"]
-position = Vector2( -86.6667, 0 )
-scale = Vector2( 1.33333, 1.33333 )
+[node name="Camera2D" type="Camera2D" parent="Pivot/Sprite"]
+position = Vector2( -3.05176e-05, 0 )
+scale = Vector2( 0.999997, 0.999997 )
 current = true
 limit_smoothed = true
 smoothing_enabled = true
-smoothing_speed = 4.0
+smoothing_speed = 2.5

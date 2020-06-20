@@ -4,7 +4,6 @@
 [ext_resource path="res://pawns/enemy.gd" type="Script" id=2]
 
 [node name="Actor2" type="Node2D"]
-position = Vector2( 480, 480 )
 z_index = 1
 script = ExtResource( 2 )
 type = 3
