@@ -29,8 +29,12 @@ func request_move(pawn, direction):
 			var pawn_name = get_cell_pawn(cell_target).name
 			print("Cell %s contains %s" % [cell_target, pawn_name])
 		CellType.ENEMY:
-			var pawn_name = get_cell_pawn(cell_target).name
-			print("Cell %s contains %s" % [cell_target, pawn_name])
+			var pawn_at = get_cell_pawn(cell_target)
+			var pawn_name = pawn_at.name
+			print("Cell %s contains enemy %s" % [cell_target, pawn_name])
+			set_cellv(cell_target, CellType.EMPTY)
+			pawn_at.get_parent().remove_child(pawn_at)
+			return update_pawn_position(pawn, cell_start, cell_target)
 
 
 func update_pawn_position(pawn, cell_start, cell_target):

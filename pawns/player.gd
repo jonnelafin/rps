@@ -17,6 +17,7 @@ func do_move(input_direction):
 
 
 func _process(_delta):
+	
 	var input_direction = get_input_direction()
 	#print(input_direction)
 	var xset = input_direction.x != 0

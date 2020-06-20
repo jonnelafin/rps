@@ -1,6 +1,6 @@
 extends "pawn.gd"
 
-enum colors { RED, GREEN, YELLOW }
+
 export(colors) var mycolor = colors.RED
 #var type = CellType.ENEMY
 # Declare member variables here. Examples:
