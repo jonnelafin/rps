@@ -85,5 +85,6 @@ offset = Vector2( -32, -32 )
 
 [node name="Sprite2" type="Sprite" parent="Pivot/Sprite"]
 position = Vector2( 65, 0 )
+scale = Vector2( 0.75, 0.75 )
 z_index = 1
 texture = ExtResource( 2 )

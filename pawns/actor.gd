@@ -5,6 +5,8 @@ onready var Grid = get_parent()
 func _ready():
 	update_look_direction(Vector2(1, 0))
 
+
+
 func do_move(input_direction):
 	$Pivot/Sprite/Sprite2.visible = false;
 	var target_position = Grid.request_move(self, input_direction)
@@ -16,7 +18,17 @@ func do_move(input_direction):
 
 func _process(_delta):
 	var input_direction = get_input_direction()
-	if(input_direction > Vector2(0,0) or input_direction < Vector2(0,0)):
+	#print(input_direction)
+	var xset = input_direction.x != 0
+	var yset = input_direction.y != 0
+	var sprint_mult = 1;
+	if Input.is_action_pressed("ui_sprint"):
+		sprint_mult = 4;
+	if(not (xset and yset)):
+		$Pivot/Sprite/Sprite2.position = Vector2((65)*sprint_mult, 0);
+	else:
+		$Pivot/Sprite/Sprite2.position = Vector2((65*1.435)*sprint_mult, 0);
+	if(xset or yset):
 		$Pivot/Sprite/Sprite2.visible = true;
 	else:
 		$Pivot/Sprite/Sprite2.visible = false;
