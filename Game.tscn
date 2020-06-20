@@ -3,11 +3,11 @@
 [ext_resource path="res://tilesets/grid_lines/grid_lines_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/grid/grid_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://grid/grid.gd" type="Script" id=3]
-[ext_resource path="res://pawns/Actor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://pawns/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://pawns/pawn.gd" type="Script" id=5]
-[ext_resource path="res://pawns/sprites/character_grey.png" type="Texture" id=6]
 [ext_resource path="res://pawns/sprites/star.png" type="Texture" id=7]
 [ext_resource path="res://default_env.tres" type="Environment" id=8]
+[ext_resource path="res://pawns/enemies/Enemy.tscn" type="PackedScene" id=10]
 
 [node name="Game" type="Node"]
 
@@ -34,37 +34,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Actor" parent="Grid" instance=ExtResource( 4 )]
+[node name="Player" parent="Grid" instance=ExtResource( 4 )]
 position = Vector2( 416, 288 )
 
-[node name="Sprite" parent="Grid/Actor/Pivot" index="0"]
-position = Vector2( 0, 0 )
-
-[node name="Camera2D" type="Camera2D" parent="Grid/Actor"]
-position = Vector2( -416, -288 )
-offset = Vector2( 640, 360 )
-rotating = true
-current = true
-smoothing_enabled = true
-smoothing_speed = 3.0
-
-[node name="Actor2" type="Node2D" parent="Grid"]
-position = Vector2( 480, 480 )
-z_index = 1
-script = ExtResource( 5 )
-
-[node name="Sprite" type="Sprite" parent="Grid/Actor2"]
-z_as_relative = false
-texture = ExtResource( 6 )
-
-[node name="Actor3" type="Node2D" parent="Grid"]
-position = Vector2( 865, 350 )
-z_index = 2
-script = ExtResource( 5 )
-
-[node name="Sprite" type="Sprite" parent="Grid/Actor3"]
-z_as_relative = false
-texture = ExtResource( 6 )
+[node name="1" parent="Grid" instance=ExtResource( 10 )]
 
 [node name="Object" type="Node2D" parent="Grid"]
 position = Vector2( 544, 288 )
@@ -76,5 +49,3 @@ texture = ExtResource( 7 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 8 )
-
-[editable path="Grid/Actor"]

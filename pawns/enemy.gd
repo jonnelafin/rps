@@ -1,6 +1,8 @@
 extends "pawn.gd"
 
-
+enum colors { RED, GREEN, YELLOW }
+export(colors) var mycolor = colors.RED
+#var type = CellType.ENEMY
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -8,7 +10,15 @@ extends "pawn.gd"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	type = CellType.ENEMY
+	match mycolor:
+		colors.RED:
+			$Sprite.texture = load("res://pawns/enemies/r.png")
+		colors.GREEN:
+			$Sprite.texture = load("res://pawns/enemies/g.png")
+		colors.YELLOW:
+			$Sprite.texture = load("res://pawns/enemies/y.png")
+#	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
