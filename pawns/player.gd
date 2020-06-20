@@ -21,13 +21,13 @@ func do_move(input_direction):
 func _process(_delta):
 	match mycolor:
 		colors.RED:
-			$Pivot/Sprite.texture = load("res://pawns/enemies/r.png")
+			$Pivot/Sprite.texture = load("res://textures/pawns/r.png")
 		colors.GREEN:
-			$Pivot/Sprite.texture = load("res://pawns/enemies/g.png")
+			$Pivot/Sprite.texture = load("res://textures/pawns/g.png")
 		colors.YELLOW:
-			$Pivot/Sprite.texture = load("res://pawns/enemies/y.png")
+			$Pivot/Sprite.texture = load("res://textures/pawns/y.png")
 		colors.BLUE:
-			$Pivot/Sprite.texture = load("res://pawns/sprites/character.png")
+			$Pivot/Sprite.texture = load("res://textures/pawns/character.png")
 	var input_direction = get_input_direction()
 	#print(input_direction)
 	var xset = input_direction.x != 0

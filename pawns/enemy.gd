@@ -13,11 +13,11 @@ func _ready():
 	type = CellType.ENEMY
 	match mycolor:
 		colors.RED:
-			$Sprite.texture = load("res://pawns/enemies/r.png")
+			$Sprite.texture = load("res://textures/pawns/r.png")
 		colors.GREEN:
-			$Sprite.texture = load("res://pawns/enemies/g.png")
+			$Sprite.texture = load("res://textures/pawns/g.png")
 		colors.YELLOW:
-			$Sprite.texture = load("res://pawns/enemies/y.png")
+			$Sprite.texture = load("res://textures/pawns/y.png")
 #	pass # Replace with function body.
 
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://pawns/sprites/character_grey.png" type="Texture" id=1]
+[ext_resource path="res://textures/pawns/character_grey.png" type="Texture" id=1]
 [ext_resource path="res://pawns/enemy.gd" type="Script" id=2]
 
 [node name="Actor2" type="Node2D"]

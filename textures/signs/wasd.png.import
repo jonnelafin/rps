@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/r.png-443547d070bbcebbb2a564eba25f1bec.stex"
+path="res://.import/wasd.png-f1fcd15021fb5240817f224cf12b6531.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pawns/enemies/r.png"
-dest_files=[ "res://.import/r.png-443547d070bbcebbb2a564eba25f1bec.stex" ]
+source_file="res://textures/signs/wasd.png"
+dest_files=[ "res://.import/wasd.png-f1fcd15021fb5240817f224cf12b6531.stex" ]
 
 [params]
 
