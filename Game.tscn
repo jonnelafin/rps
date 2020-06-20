@@ -54,6 +54,7 @@ z_index = 1
 script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Grid/Actor2"]
+z_as_relative = false
 texture = ExtResource( 6 )
 
 [node name="Actor3" type="Node2D" parent="Grid"]
@@ -62,6 +63,7 @@ z_index = 2
 script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Grid/Actor3"]
+z_as_relative = false
 texture = ExtResource( 6 )
 
 [node name="Object" type="Node2D" parent="Grid"]
