@@ -5,6 +5,7 @@ onready var Grid = get_parent()
 var running = false
 
 func _ready():
+	Global.player = self
 	update_look_direction(Vector2(1, 0))
 
 
