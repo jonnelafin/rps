@@ -1,6 +1,6 @@
 extends Node
 
-
+var pawns = []
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -11,9 +11,30 @@ func _ready():
 	pass # Replace with function body.
 
 func addPawn(pawn):
-	print("Pawn " + pawn.name + " reporting in.")
+	print("Pawn \"" + pawn.name + "\" reporting in.")
+	pawns.append(pawn)
 func removePawn(pawn):
-	print("Pawn " + pawn.name + " reporting dead.")
+	print("Pawn \"" + pawn.name + "\" reporting dead.")
+	if(pawns.has(pawn)):
+		pawns.remove(pawns.find(pawn))
+	else:
+		print("pawn was not on the list")
+func clearPawns():
+	pawns = []
+
+func doAI():
+	if(pawns.size() > 0):
+		print("Executing AI tasks...")
+	else:
+		print("No AI Pawns Present.")
+	for pawn in pawns:
+		if(is_instance_valid(pawn)):
+			if(pawn.getType() == "ENEMY"):
+				if(not pawn.AIDisabled):
+					print("		Enemy " + pawn.name + " doing stuff...")
+					pawn.doAI()
+				else:
+					print("		Enemy " + pawn.name + " has AI disabled.")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

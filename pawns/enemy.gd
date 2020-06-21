@@ -22,6 +22,8 @@ func _ready():
 			$Sprite.texture = load("res://textures/pawns/character.png")
 #	pass # Replace with function body.
 
+func doAI():
+	print("		" + name + " : Walking")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

@@ -45,19 +45,27 @@ position = Vector2( 225.937, -415.317 )
 position = Vector2( 227.074, 95.2501 )
 rotation = 1.21649
 mycolor = 3
+AIDisabled = true
 
 [node name="3" parent="Grid" instance=ExtResource( 9 )]
 position = Vector2( 291.89, 226.389 )
 rotation = 0.435579
 mycolor = 3
+AIDisabled = true
 
 [node name="4" parent="Grid" instance=ExtResource( 9 )]
 position = Vector2( 153.215, 289.697 )
 rotation = 1.92325
 mycolor = 3
+AIDisabled = true
 
 [node name="2" parent="Grid" instance=ExtResource( 9 )]
 position = Vector2( 546.64, 480 )
+AIDisabled = true
+
+[node name="5" parent="Grid" instance=ExtResource( 9 )]
+position = Vector2( 545.208, 28.9286 )
+mycolor = 1
 
 [node name="Object" type="Node2D" parent="Grid"]
 position = Vector2( 544, 288 )

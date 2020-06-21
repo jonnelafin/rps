@@ -52,10 +52,13 @@ func _process(_delta):
 	if (not Input.is_action_just_pressed("ui_accept")):
 		return
 	if Input.is_action_pressed("ui_sprint"):
+		AudioManager.get_node("Dash").play()
 		for _i in range(4):
 			do_move(input_direction)
 	else:
+		AudioManager.get_node("Walk").play()
 		do_move(input_direction)
+	Global.doAI()
 
 
 func get_input_direction():

@@ -38,6 +38,8 @@ func request_move(pawn, direction):
 				if(pawn.running):
 					deny = false
 				if(not deny):
+					if(pawn.mycolor != pawn_at.mycolor):
+						AudioManager.get_node("Change").play()
 					pawn.setColor(pawn_at.mycolor)
 			if(pawn.mycolor == pawn_at.mycolor):
 				set_cellv(cell_target, CellType.EMPTY)

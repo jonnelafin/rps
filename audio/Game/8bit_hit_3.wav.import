@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/8bit_hit_3.wav-c93fc5f8efb6f20b79edeba63c0ecfad.sample"
+
+[deps]
+
+source_file="res://audio/Game/8bit_hit_3.wav"
+dest_files=[ "res://.import/8bit_hit_3.wav-c93fc5f8efb6f20b79edeba63c0ecfad.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
