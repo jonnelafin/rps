@@ -65,11 +65,17 @@ func doAI():
 		$Sprite/RayCast2D.force_raycast_update()
 		#$Sprite/Line2D.points[1] = Vector2(500, i-500)
 		if(is_instance_valid($Sprite/RayCast2D.get_collider())):
-			detected = $Sprite/RayCast2D.get_collider()
+			if(not is_instance_valid(detected)) and ($Sprite/RayCast2D.get_collider() is TileMap):
+				detected = $Sprite/RayCast2D.get_collider()
+			elif not ($Sprite/RayCast2D.get_collider() is TileMap):
+				detected = $Sprite/RayCast2D.get_collider()
 	$Sprite/marker.visible = false
 	if(is_instance_valid(detected)):
 		$Sprite/marker.visible = true
-		$Sprite/marker.points[1] = to_local(detected.global_position)
+		if($Sprite/RayCast2D.get_collider() is TileMap):
+			$Sprite/marker.points[1] = to_local(detected.global_position)
+		else:
+			$Sprite/marker.points[1] = to_local($Sprite/RayCast2D.get_collision_point())
 		#$Sprite/marker.points[1].x = -$Sprite/marker.points[1].x
 		#$Sprite/marker.points[1].y = -$Sprite/marker.points[1].y
 	#print(detected)
