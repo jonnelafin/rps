@@ -17,8 +17,15 @@ _global_script_class_icons={
 
 config/name="rps"
 run/main_scene="res://Start.tscn"
+boot_splash/image="res://textures/logo_self.png"
+boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
+
+[autoload]
+
+AudioManager="*res://audio/AudioManager.tscn"
+Global="*res://scripts/Global.tscn"
 
 [display]
 

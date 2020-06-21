@@ -1,6 +1,6 @@
 extends "pawn.gd"
 
-
+export(bool) var AIDisabled = false
 
 #var type = CellType.ENEMY
 # Declare member variables here. Examples:
@@ -18,6 +18,8 @@ func _ready():
 			$Sprite.texture = load("res://textures/pawns/g.png")
 		colors.YELLOW:
 			$Sprite.texture = load("res://textures/pawns/y.png")
+		colors.BLUE:
+			$Sprite.texture = load("res://textures/pawns/character.png")
 #	pass # Replace with function body.
 
 

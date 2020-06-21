@@ -17,4 +17,5 @@ func _ready():
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://levels/Game.tscn")
+	AudioManager.get_node("Start").play()
+	var _s = get_tree().change_scene("res://levels/Game.tscn")

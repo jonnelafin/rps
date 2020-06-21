@@ -10,6 +10,10 @@ extends Node
 func _ready():
 	pass # Replace with function body.
 
+func addPawn(pawn):
+	print("Pawn " + pawn.name + " reporting in.")
+func removePawn(pawn):
+	print("Pawn " + pawn.name + " reporting dead.")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,6 +27,6 @@ func _process(delta):
 	if(Input.is_action_just_pressed("ui_restart")):
 		var currentScene = get_tree().get_current_scene().get_filename()
 		print(currentScene) # for Debug
-		get_tree().change_scene(currentScene)
+		var _s = get_tree().change_scene(currentScene)
 		print("Restart")
 #	pass

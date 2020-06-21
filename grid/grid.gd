@@ -41,7 +41,7 @@ func request_move(pawn, direction):
 					pawn.setColor(pawn_at.mycolor)
 			if(pawn.mycolor == pawn_at.mycolor):
 				set_cellv(cell_target, CellType.EMPTY)
-				pawn_at.get_parent().remove_child(pawn_at)
+				pawn_at.die()
 				deny = false
 			if(deny):
 				return

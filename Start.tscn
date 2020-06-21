@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fonts/robotoFried.tres" type="DynamicFont" id=1]
 [ext_resource path="res://fonts/fried_theme.tres" type="Theme" id=2]
 [ext_resource path="res://scripts/main_menu.gd" type="Script" id=3]
 [ext_resource path="res://scripts/global.gd" type="Script" id=4]
+[ext_resource path="res://fonts/robotoFriedSmall.tres" type="DynamicFont" id=6]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -19,8 +20,23 @@ margin_top = 48.0
 margin_right = 741.0
 margin_bottom = 239.0
 custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.937255, 0.580392, 0.12549, 1 )
 text = "RPS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 922.684
+margin_top = 2.94733
+margin_right = 1278.68
+margin_bottom = 111.947
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.790039, 0.535951, 0.203682, 1 )
+text = "F11
+Toggle Fullscreen "
 align = 1
 valign = 1
 __meta__ = {
@@ -38,9 +54,9 @@ margin_right = 224.0
 margin_bottom = 344.0
 theme = ExtResource( 2 )
 custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0.0117647, 0.203922, 1 )
-custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.796078, 0.509804, 0.141176, 1 )
+custom_colors/font_color_pressed = Color( 0.972549, 0.596078, 0.0627451, 1 )
 text = "Start"
 align = 0
 __meta__ = {

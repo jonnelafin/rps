@@ -10,3 +10,10 @@ func getColor():
 	return colors.keys()[mycolor]
 func setColor(colorindex):
 	mycolor = colorindex
+
+func _ready():
+	Global.addPawn(self)
+
+func die():
+	Global.removePawn(self)
+	get_parent().remove_child(self)
