@@ -14,6 +14,6 @@ func setColor(colorindex):
 func _ready():
 	Global.addPawn(self)
 
-func die():
-	Global.removePawn(self)
+func die(killer):
+	Global.removePawn(self, killer)
 	get_parent().remove_child(self)

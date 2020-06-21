@@ -13,8 +13,8 @@ func _ready():
 func addPawn(pawn):
 	print("Pawn \"" + pawn.name + "\" reporting in.")
 	pawns.append(pawn)
-func removePawn(pawn):
-	print("Pawn \"" + pawn.name + "\" reporting dead.")
+func removePawn(pawn, killer):
+	print("Pawn \"" + pawn.name + "\" reporting dead, killed by " + killer.name)
 	if(pawns.has(pawn)):
 		pawns.remove(pawns.find(pawn))
 	else:

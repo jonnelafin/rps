@@ -18,36 +18,37 @@ func request_move(pawn, direction):
 	var cell_target = cell_start + direction
 	
 	var cell_target_type = get_cellv(cell_target)
-	match cell_target_type:
-		CellType.EMPTY:
-			return update_pawn_position(pawn, cell_start, cell_target)
-		CellType.OBJECT:
-			var object_pawn = get_cell_pawn(cell_target)
-			object_pawn.queue_free()
-			return update_pawn_position(pawn, cell_start, cell_target)
-		CellType.Player:
-			var pawn_name = get_cell_pawn(cell_target).name
-			print("Cell %s contains %s" % [cell_target, pawn_name])
-		CellType.ENEMY:
-			var deny = true
-			var pawn_at = get_cell_pawn(cell_target)
-			var pawn_name = pawn_at.name
-			print("Cell %s contains enemy %s" % [cell_target, pawn_name])
-			
-			if(pawn.getType() == "Player"):
-				if(pawn.running):
+	if(get_cell_pawn(cell_target) != pawn):
+		match cell_target_type:
+			CellType.EMPTY:
+				return update_pawn_position(pawn, cell_start, cell_target)
+			CellType.OBJECT:
+				var object_pawn = get_cell_pawn(cell_target)
+				object_pawn.queue_free()
+				return update_pawn_position(pawn, cell_start, cell_target)
+			CellType.Player:
+				var pawn_name = get_cell_pawn(cell_target).name
+				print("Cell %s contains %s" % [cell_target, pawn_name])
+			CellType.ENEMY:
+				var deny = true
+				var pawn_at = get_cell_pawn(cell_target)
+				var pawn_name = pawn_at.name
+				print("Cell %s contains enemy %s" % [cell_target, pawn_name])
+				
+				if(pawn.getType() == "Player"):
+					if(pawn.running):
+						deny = false
+					if(not deny):
+						if(pawn.mycolor != pawn_at.mycolor):
+							AudioManager.get_node("Change").play()
+						pawn.setColor(pawn_at.mycolor)
+				if(pawn.mycolor == pawn_at.mycolor):
+					set_cellv(cell_target, CellType.EMPTY)
+					pawn_at.die(pawn)
 					deny = false
-				if(not deny):
-					if(pawn.mycolor != pawn_at.mycolor):
-						AudioManager.get_node("Change").play()
-					pawn.setColor(pawn_at.mycolor)
-			if(pawn.mycolor == pawn_at.mycolor):
-				set_cellv(cell_target, CellType.EMPTY)
-				pawn_at.die()
-				deny = false
-			if(deny):
-				return
-			return update_pawn_position(pawn, cell_start, cell_target)
+				if(deny):
+					return
+				return update_pawn_position(pawn, cell_start, cell_target)
 
 
 func update_pawn_position(pawn, cell_start, cell_target):
