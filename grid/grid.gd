@@ -32,8 +32,8 @@ func request_move(pawn, direction):
 			CellType.ENEMY:
 				var deny = true
 				var pawn_at = get_cell_pawn(cell_target)
-				var pawn_name = pawn_at.name
-				print("Cell %s contains enemy %s" % [cell_target, pawn_name])
+			#	var pawn_name = pawn_at.name
+			#	print("Cell %s contains enemy %s" % [cell_target, pawn_name])
 				
 				if(pawn.getType() == "Player"):
 					if(pawn.running):

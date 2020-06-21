@@ -55,7 +55,7 @@ AIDisabled = true
 
 [node name="4" parent="Grid" instance=ExtResource( 9 )]
 position = Vector2( 33.3269, 286.162 )
-rotation = 0.0149661
+rotation = 1.37698
 mycolor = 3
 
 [node name="2" parent="Grid" instance=ExtResource( 9 )]
@@ -65,6 +65,7 @@ position = Vector2( 546.64, 480 )
 position = Vector2( 545.208, 28.9286 )
 rotation = -2.6779
 mycolor = 1
+myState = 1
 
 [node name="Object" type="Node2D" parent="Grid"]
 position = Vector2( 544, 288 )

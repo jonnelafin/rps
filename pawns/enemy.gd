@@ -59,6 +59,7 @@ func doAI():
 #		$RayCast2D.cast_to = Vector2(500, 0)
 	var to = Vector2(500, 0)
 	var detected = $Sprite/RayCast2D.get_collider()
+	var last = $Sprite/RayCast2D.get_collision_point()
 	for i in range(600):
 		to = Vector2(500, i-300)
 		$Sprite/RayCast2D.cast_to = to
@@ -67,15 +68,21 @@ func doAI():
 		if(is_instance_valid($Sprite/RayCast2D.get_collider())):
 			if(not is_instance_valid(detected)) and ($Sprite/RayCast2D.get_collider() is TileMap):
 				detected = $Sprite/RayCast2D.get_collider()
+				last = $Sprite/RayCast2D.get_collision_point()
 			elif not ($Sprite/RayCast2D.get_collider() is TileMap):
 				detected = $Sprite/RayCast2D.get_collider()
-	$Sprite/marker.visible = false
+				last = $Sprite/RayCast2D.get_collision_point()
+	to = Vector2(500, 0)
+	$Sprite/RayCast2D.cast_to = to
+	$Sprite/RayCast2D.force_raycast_update()
+	#detected = $Sprite/RayCast2D.get_collider()
+	$marker.visible = false
 	if(is_instance_valid(detected)):
-		$Sprite/marker.visible = true
-		if($Sprite/RayCast2D.get_collider() is TileMap):
-			$Sprite/marker.points[1] = to_local(detected.global_position)
+		$marker.visible = true
+		if not (detected is TileMap):
+			$marker.points[1] = to_local(detected.global_position)
 		else:
-			$Sprite/marker.points[1] = to_local($Sprite/RayCast2D.get_collision_point())
+			$marker.points[1] = to_local(last)
 		#$Sprite/marker.points[1].x = -$Sprite/marker.points[1].x
 		#$Sprite/marker.points[1].y = -$Sprite/marker.points[1].y
 	#print(detected)
@@ -90,5 +97,5 @@ func move_to(target_position):
 	set_process(true)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Sprite/Line2D.visible = not AIDisabled
+	$Sprite/Line2D.visible = false#not AIDisabled
 #	pass
