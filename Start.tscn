@@ -14,9 +14,9 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = -536.0
+margin_left = -528.0
 margin_top = 48.0
-margin_right = 741.0
+margin_right = 749.0
 margin_bottom = 239.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.937255, 0.580392, 0.12549, 1 )
@@ -45,6 +45,8 @@ __meta__ = {
 [node name="Line2D" type="Line2D" parent="."]
 position = Vector2( 24, 200 )
 points = PoolVector2Array( 0, 0, 1000, 0 )
+width = 5.0
+default_color = Color( 0.686275, 0.823529, 0.92549, 1 )
 
 [node name="Button" type="Button" parent="."]
 margin_left = 32.0
