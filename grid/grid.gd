@@ -25,7 +25,10 @@ func request_move(pawn, direction):
 			CellType.OBJECT:
 				var object_pawn = get_cell_pawn(cell_target)
 				var next = object_pawn.nextLevel
+				#var curDash = pawn.Dash
+				Global.backupDash = Global.player.Dash
 				var _s = get_tree().change_scene(next)
+				#Global.player.Dash = curDash
 				object_pawn.queue_free()
 				return update_pawn_position(pawn, cell_start, cell_target)
 			CellType.Player:

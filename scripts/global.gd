@@ -9,6 +9,7 @@ var enableJoy = false
 var joyIn = Vector2.ZERO
 
 var player
+var backupDash = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

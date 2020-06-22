@@ -8,6 +8,8 @@ export(float) var Dash = 0.0
 
 func _ready():
 	Global.player = self
+	if(Dash == 0):
+		Dash = Global.backupDash
 	update_look_direction(Vector2(1, 0))
 
 
@@ -22,6 +24,7 @@ func do_move(input_direction):
 
 
 func _process(_delta):
+#	Global.backupDash = Dash
 	if(Dash < 0):
 		Dash = 0
 	$ProgressBar.value = Dash

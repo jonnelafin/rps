@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://tilesets/GridLines.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tilesets/grid/grid_tileset.tres" type="TileSet" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://textures/signs/gainDash.png" type="Texture" id=8]
 [ext_resource path="res://pawns/enemies/Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://textures/signs/Restart.png" type="Texture" id=10]
+[ext_resource path="res://textures/signs/Change.png" type="Texture" id=11]
 
 [node name="Node2D" type="Node2D"]
 
@@ -41,7 +42,6 @@ nextLevel = "res://levels/2.tscn"
 position = Vector2( 2272.1, 94.0684 )
 rotation = -3.14159
 mycolor = 2
-AIDisabled = true
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 1358.7, -174 )
@@ -51,7 +51,7 @@ texture = ExtResource( 8 )
 [node name="Sprite3" type="Sprite" parent="."]
 position = Vector2( 1911.97, -174 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 7 )
+texture = ExtResource( 11 )
 
 [node name="Sprite4" type="Sprite" parent="."]
 position = Vector2( 1911.97, 347.023 )
