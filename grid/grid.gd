@@ -24,11 +24,21 @@ func request_move(pawn, direction):
 				return update_pawn_position(pawn, cell_start, cell_target)
 			CellType.OBJECT:
 				var object_pawn = get_cell_pawn(cell_target)
+				var next = object_pawn.nextLevel
+				var _s = get_tree().change_scene(next)
 				object_pawn.queue_free()
 				return update_pawn_position(pawn, cell_start, cell_target)
 			CellType.Player:
-				var pawn_name = get_cell_pawn(cell_target).name
-				print("Cell %s contains %s" % [cell_target, pawn_name])
+				#var pawn_name = get_cell_pawn(cell_target).name
+				#print("Cell %s contains %s" % [cell_target, pawn_name])
+				var pawn_at = get_cell_pawn(cell_target)
+				if(pawn.getType() == "ENEMY"):
+					pawn.setColor(pawn_at.mycolor)
+					set_cellv(cell_target, CellType.EMPTY)
+					pawn_at.visible = false
+					Global.playerDeath()
+					#pawn_at.die(pawn)
+					return update_pawn_position(pawn, cell_start, cell_target)
 			CellType.ENEMY:
 				if not is_instance_valid(get_cell_pawn(cell_target)):
 					return

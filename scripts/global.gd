@@ -32,7 +32,7 @@ func doAI():
 	else:
 		print("No AI Pawns Present.")
 	for pawn in pawns:
-		if(is_instance_valid(pawn)):
+		if(is_instance_valid(pawn) and pawn is preload("res://pawns/pawn.gd")):
 			if(pawn.getType() == "ENEMY"):
 				if(not pawn.AIDisabled):
 					print("		Enemy " + pawn.name + " doing stuff...")
@@ -56,3 +56,6 @@ func _process(delta):
 		var _s = get_tree().change_scene(currentScene)
 		print("Restart")
 #	pass
+func playerDeath():
+	clearPawns()
+	var _s = get_tree().change_scene("res://scripts/Death.tscn")

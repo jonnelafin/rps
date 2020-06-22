@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://fonts/robotoFried.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/robotoFriedSmall.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scripts/Death.gd" type="Script" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 159.425
+margin_right = 1280.0
+margin_bottom = 397.425
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.811765, 0.505882, 0.176471, 1 )
+text = "You Died!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Label"]
+margin_top = 159.425
+margin_right = 1280.0
+margin_bottom = 201.425
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.584314, 0.811765, 0.827451, 1 )
+text = "Press Any Key To Restart"
+align = 1

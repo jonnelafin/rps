@@ -42,7 +42,6 @@ func update_look_direction(direction):
 	$Sprite.rotation = direction.angle()
 func doAI():
 	set_process(false)
-	raycast()
 	if(is_instance_valid(detected) and detected.is_in_group("players")):
 		if(myState != state.CHASE and myState != state.SEARCH):
 			lastAct = myState
@@ -95,6 +94,7 @@ func doAI():
 		#$Sprite/marker.points[1].x = -$Sprite/marker.points[1].x
 		#$Sprite/marker.points[1].y = -$Sprite/marker.points[1].y
 	#print(detected)
+	raycast()
 	set_process(true)
 func move_to(target_position):
 	set_process(false)
@@ -110,7 +110,8 @@ func raycast():
 	var to = Vector2(1000, 0)
 	detected = $Sprite/RayCast2D.get_collider()
 	var last = $Sprite/RayCast2D.get_collision_point()
-	for i in range(3000):
+	for i in range(3000/4):
+		i = i * 4
 		to = Vector2(1000, i-1500)
 		$Sprite/RayCast2D.cast_to = to
 		$Sprite/RayCast2D.force_raycast_update()
