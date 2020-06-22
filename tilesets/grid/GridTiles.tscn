@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://tilesets/grid/actor.png" type="Texture" id=1]
 [ext_resource path="res://tilesets/grid/obstacle.png" type="Texture" id=2]
 [ext_resource path="res://tilesets/grid/object.png" type="Texture" id=3]
+[ext_resource path="res://tilesets/grid/reset.png" type="Texture" id=4]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
@@ -23,5 +24,17 @@ texture = ExtResource( 2 )
 navpoly = SubResource( 1 )
 
 [node name="Object" type="Sprite" parent="."]
-position = Vector2( 160, 32 )
+position = Vector2( 160, 32.3235 )
 texture = ExtResource( 3 )
+
+[node name="Reset" type="Sprite" parent="."]
+position = Vector2( 225, 32 )
+texture = ExtResource( 4 )
+
+[node name="Reset2" type="Sprite" parent="."]
+position = Vector2( 290, 32 )
+texture = ExtResource( 4 )
+
+[node name="Reset3" type="Sprite" parent="."]
+position = Vector2( 290, 32 )
+texture = ExtResource( 4 )

@@ -65,7 +65,7 @@ func doAI():
 		print("		" + name + " : Chasing")
 		for actor in Global.pawns:
 			if is_instance_valid(actor) and actor is preload("res://pawns/pawn.gd") and actor.type == CellType.ENEMY:
-				if actor.global_position.distance_to(global_position) < 700:
+				if actor.global_position.distance_to(global_position) < 400:
 					print("		" + name + " alerted " + actor.name)
 					actor.detected = detected
 					actor.myState = state.CHASE
@@ -117,12 +117,12 @@ func move_to(target_position):
 	set_process(true)
 func raycast():
 	$Sprite/Line2D.visible = false#not AIDisabled
-	var to = Vector2(1000, 0)
+	var to = Vector2(655, 0)
 	detected = $Sprite/RayCast2D.get_collider()
 	var last = $Sprite/RayCast2D.get_collision_point()
-	for i in range(3000/4):
+	for i in range((3000/4)/2):
 		i = i * 4
-		to = Vector2(1000, i-1500)
+		to = Vector2(655, i-(1500)/2)
 		$Sprite/RayCast2D.cast_to = to
 		$Sprite/RayCast2D.force_raycast_update()
 		#$Sprite/Line2D.points[1] = Vector2(500, i-500)
@@ -133,7 +133,7 @@ func raycast():
 			elif not ($Sprite/RayCast2D.get_collider() is TileMap):
 				detected = $Sprite/RayCast2D.get_collider()
 				last = $Sprite/RayCast2D.get_collision_point()
-	to = Vector2(1000, 0)
+	to = Vector2(655, 0)
 	$Sprite/RayCast2D.cast_to = to
 	$Sprite/RayCast2D.force_raycast_update()
 	#detected = $Sprite/RayCast2D.get_collider()

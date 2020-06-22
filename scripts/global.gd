@@ -7,6 +7,8 @@ var pawns = []
 
 var currLevel = ""
 
+var giveDash = 20
+
 var enableJoy = false
 var joyIn = Vector2.ZERO
 

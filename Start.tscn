@@ -42,6 +42,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label3" type="Label" parent="."]
+margin_left = 32.0
+margin_top = 611.0
+margin_right = 164.0
+margin_bottom = 653.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.790039, 0.535951, 0.203682, 1 )
+text = "Difficulty"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Line2D" type="Line2D" parent="."]
 position = Vector2( 24, 200 )
 points = PoolVector2Array( 0, 0, 1000, 0 )
@@ -64,11 +78,42 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Button2" type="Button" parent="."]
+margin_left = 32.0
+margin_top = 384.0
+margin_right = 132.0
+margin_bottom = 432.0
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.796078, 0.509804, 0.141176, 1 )
+custom_colors/font_color_pressed = Color( 0.972549, 0.596078, 0.0627451, 1 )
+text = "Arena"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CheckButton" type="CheckButton" parent="."]
+visible = false
 margin_left = 32.0
 margin_top = 344.0
 margin_right = 232.0
 margin_bottom = 384.0
 text = "Enable Joystick"
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 32.0
+margin_top = 653.0
+margin_right = 360.0
+margin_bottom = 669.0
+step = 50.0
+tick_count = 3
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button_pressed"]
 [connection signal="toggled" from="CheckButton" to="." method="_on_CheckButton_toggled"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]

@@ -1,6 +1,6 @@
 extends TileMap
 
-enum CellType { EMPTY = -1, Player, OBSTACLE, OBJECT, ENEMY}
+enum CellType { EMPTY = -1, Player, OBSTACLE, OBJECT, ENEMY, FIELD=6}
 
 func _ready():
 	for child in get_children():
@@ -19,9 +19,14 @@ func request_move(pawn, direction):
 	
 	var cell_target_type = get_cellv(cell_target)
 	if(get_cell_pawn(cell_target) != pawn):
+		print(cell_target_type)
 		match cell_target_type:
 			CellType.EMPTY:
 				return update_pawn_position(pawn, cell_start, cell_target)
+			CellType.FIELD:
+				if(pawn is preload("res://pawns/player.gd")):
+					pawn.Dash = 0.0
+					return update_pawn_position(pawn, cell_start, cell_target)
 			CellType.OBJECT:
 				var object_pawn = get_cell_pawn(cell_target)
 				var next = object_pawn.nextLevel
@@ -61,7 +66,7 @@ func request_move(pawn, direction):
 						
 				if(pawn.mycolor == pawn_at.mycolor):
 					if(pawn.getType() == "Player" and pawn.Dash < 100.0 and pawn.mycolor == pawn_at.mycolor):
-						pawn.Dash = pawn.Dash + 20.0
+						pawn.Dash = pawn.Dash + Global.giveDash
 					set_cellv(cell_target, CellType.EMPTY)
 					pawn_at.die(pawn)
 					pawn_at.AIDisabled = true

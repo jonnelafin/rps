@@ -22,6 +22,11 @@ func _on_Button_pressed():
 	AudioManager.get_node("Start").play()
 	var _s = get_tree().change_scene(nextLevel)
 
-
 func _on_CheckButton_toggled(button_pressed):
 	Global.enableJoy = button_pressed
+
+
+func _on_HSlider_value_changed(value):
+	Global.giveDash = 20 - (value/10)
+	print(Global.giveDash)
+#	pass # Replace with function body.
