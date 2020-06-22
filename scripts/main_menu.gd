@@ -30,3 +30,9 @@ func _on_HSlider_value_changed(value):
 	Global.giveDash = 20 - (value/10)
 	print(Global.giveDash)
 #	pass # Replace with function body.
+
+
+func _on_Button2_pressed():
+	AudioManager.get_node("Start").play()
+	Global.currLevel = "res://levels/4.tscn"
+	var _s = get_tree().change_scene("res://levels/4.tscn")

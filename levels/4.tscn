@@ -21,8 +21,8 @@ tile_data = PoolIntArray( -65511, 1, 0, -65510, 1, 0, -65509, 1, 0, -65508, 1, 0
 script = ExtResource( 4 )
 
 [node name="Player" parent="TileMap" instance=ExtResource( 3 )]
-position = Vector2( 1767.97, 96.98 )
-Dash = 20.0
+position = Vector2( 1759.88, 96.2449 )
+Dash = 10.0
 
 [node name="Actor2" parent="TileMap" instance=ExtResource( 9 )]
 position = Vector2( 1760.2, 223.828 )
