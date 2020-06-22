@@ -20,6 +20,9 @@ func _input(event):
 	if failSafe > 0 and event is InputEventKey and event.is_pressed() and event.scancode  != last:
 		
 		AudioManager.get_node("Start").play()
-		var _s = get_tree().change_scene("res://levels/Game.tscn")
+		var currentScene = Global.currLevel
+		print(currentScene) # for Debug
+		var _s = get_tree().change_scene(currentScene)
+		print("Restart")
 	if(event is InputEventKey):
 		last = event.scancode 

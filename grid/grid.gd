@@ -25,6 +25,7 @@ func request_move(pawn, direction):
 			CellType.OBJECT:
 				var object_pawn = get_cell_pawn(cell_target)
 				var next = object_pawn.nextLevel
+				Global.currLevel = next
 				#var curDash = pawn.Dash
 				Global.backupDash = Global.player.Dash
 				var _s = get_tree().change_scene(next)
@@ -43,13 +44,13 @@ func request_move(pawn, direction):
 					#pawn_at.die(pawn)
 					return update_pawn_position(pawn, cell_start, cell_target)
 			CellType.ENEMY:
-				if not is_instance_valid(get_cell_pawn(cell_target)):
+				if not is_instance_valid(get_cell_pawn(cell_target)) or pawn.getType() != "Player":
 					return
 				var deny = true
 				var pawn_at = get_cell_pawn(cell_target)
 			#	var pawn_name = pawn_at.name
 			#	print("Cell %s contains enemy %s" % [cell_target, pawn_name])
-				
+				var oldCol = pawn.mycolor
 				if(pawn.getType() == "Player"):
 					if(pawn.running):
 						deny = false
@@ -59,10 +60,11 @@ func request_move(pawn, direction):
 						pawn.setColor(pawn_at.mycolor)
 						
 				if(pawn.mycolor == pawn_at.mycolor):
-					if(pawn.getType() == "Player" and pawn.Dash < 100.0 and not pawn.running):
+					if(pawn.getType() == "Player" and pawn.Dash < 100.0 and pawn.mycolor == pawn_at.mycolor):
 						pawn.Dash = pawn.Dash + 20.0
 					set_cellv(cell_target, CellType.EMPTY)
 					pawn_at.die(pawn)
+					pawn_at.AIDisabled = true
 					deny = false
 				if(deny):
 					return

@@ -16,6 +16,7 @@ var lastAct
 # var b = "text"
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	update_look_direction(Vector2(1, 0))
@@ -40,6 +41,8 @@ func do_move(input_direction):
 		var i = 0
 func update_look_direction(direction):
 	$Sprite.rotation = direction.angle()
+func setRot(rot):
+	$Sprite.rotation = rot
 func doAI():
 	set_process(false)
 	if(is_instance_valid(detected) and detected.is_in_group("players")):
@@ -60,6 +63,13 @@ func doAI():
 		do_move(dir)
 	elif(myState == state.CHASE):
 		print("		" + name + " : Chasing")
+		for actor in Global.pawns:
+			if is_instance_valid(actor) and actor is preload("res://pawns/pawn.gd") and actor.type == CellType.ENEMY:
+				if actor.global_position.distance_to(global_position) < 700:
+					print("		" + name + " alerted " + actor.name)
+					actor.detected = detected
+					actor.myState = state.CHASE
+					actor.setRot($Sprite.rotation)
 		if(not (is_instance_valid(detected) and detected.is_in_group("players"))):
 			myState = state.SEARCH
 			sos = 3
