@@ -108,7 +108,7 @@ type = 0
 nextLevel = "res://Start.tscn"
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 1767.79, 2472.42 )
+position = Vector2( 1760.36, 2396.17 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 7 )
 
