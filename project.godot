@@ -91,6 +91,10 @@ ui_toggleFullscreen={
  ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [rendering]
 
 quality/intended_usage/framebuffer_allocation=0

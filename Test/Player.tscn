@@ -19,7 +19,6 @@ shape = SubResource( 1 )
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="JoystickMove" parent="UI" instance=ExtResource( 3 )]
-editor/display_folded = true
 margin_top = 90.0
 margin_bottom = 2.0
 
@@ -30,7 +29,6 @@ margin_right = 60.0
 margin_bottom = 200.0
 
 [node name="JoystickLook" parent="UI" instance=ExtResource( 3 )]
-editor/display_folded = true
 margin_left = 512.0
 margin_top = 90.0
 margin_right = 0.0
@@ -41,6 +39,8 @@ margin_left = -56.0
 margin_top = -56.0
 margin_right = 200.0
 margin_bottom = 200.0
+
+[node name="Node" type="Node" parent="."]
 
 [editable path="UI/JoystickMove"]
 

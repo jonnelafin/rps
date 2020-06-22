@@ -4,6 +4,8 @@ onready var Grid = get_parent()
 
 var running = false
 
+export(float) var Dash = 0.0
+
 func _ready():
 	Global.player = self
 	update_look_direction(Vector2(1, 0))

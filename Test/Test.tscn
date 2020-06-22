@@ -6,6 +6,17 @@
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 512, 200 )
-controls_Mode = 1
+
+[node name="JoystickMove" parent="Player/UI" index="0"]
+margin_left = 80.8957
+margin_top = -222.425
+margin_right = 380.896
+margin_bottom = -222.425
+
+[node name="JoystickLook" parent="Player/UI" index="1"]
+margin_left = 1013.51
+margin_top = -242.176
+margin_right = 1013.51
+margin_bottom = -242.176
 
 [editable path="Player"]
