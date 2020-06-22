@@ -5,6 +5,9 @@ var pawns = []
 # var a = 2
 # var b = "text"
 
+var enableJoy = false
+var joyIn = Vector2.ZERO
+
 var player
 
 # Called when the node enters the scene tree for the first time.
@@ -39,6 +42,7 @@ func doAI():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	if Input.is_action_just_pressed('ui_toggleFullscreen'):
 		print("fullscreen toggled")
 		OS.window_fullscreen = !OS.window_fullscreen

@@ -60,8 +60,8 @@ func doAI():
 	var to = Vector2(500, 0)
 	var detected = $Sprite/RayCast2D.get_collider()
 	var last = $Sprite/RayCast2D.get_collision_point()
-	for i in range(600):
-		to = Vector2(500, i-300)
+	for i in range(1000):
+		to = Vector2(500, i-500)
 		$Sprite/RayCast2D.cast_to = to
 		$Sprite/RayCast2D.force_raycast_update()
 		#$Sprite/Line2D.points[1] = Vector2(500, i-500)

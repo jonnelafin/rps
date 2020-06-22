@@ -21,3 +21,7 @@ func _ready():
 func _on_Button_pressed():
 	AudioManager.get_node("Start").play()
 	var _s = get_tree().change_scene("res://levels/Game.tscn")
+
+
+func _on_CheckButton_toggled(button_pressed):
+	Global.enableJoy = button_pressed

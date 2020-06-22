@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://pawns/player.gd" type="Script" id=1]
 [ext_resource path="res://textures/pawns/character.png" type="Texture" id=2]
+[ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "bump"
@@ -104,3 +105,10 @@ smoothing_speed = 2.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 3 )
+
+[node name="Joystick" parent="." instance=ExtResource( 3 )]
+margin_left = -609.242
+margin_top = 27.2796
+margin_right = -309.242
+margin_bottom = 327.28
+directions = 4
