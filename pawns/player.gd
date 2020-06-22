@@ -22,6 +22,9 @@ func do_move(input_direction):
 
 
 func _process(_delta):
+	if(Dash < 0):
+		Dash = 0
+	$ProgressBar.value = Dash
 	match mycolor:
 		colors.RED:
 			$Pivot/Sprite.texture = load("res://textures/pawns/r.png")
@@ -54,13 +57,18 @@ func _process(_delta):
 	update_look_direction(input_direction)
 	if (not Input.is_action_just_pressed("ui_accept")):
 		return
-	if Input.is_action_pressed("ui_sprint"):
+	var needed = 9
+	if Input.is_action_pressed("ui_sprint") and Dash > needed:
+		Dash = Dash - (needed+1)
 		AudioManager.get_node("Dash").play()
 		for _i in range(4):
 			do_move(input_direction)
-	else:
+	elif not Input.is_action_pressed("ui_sprint"):
 		AudioManager.get_node("Walk").play()
 		do_move(input_direction)
+	else:
+		bump()
+		return
 	Global.doAI()
 
 

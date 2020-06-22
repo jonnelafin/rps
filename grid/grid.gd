@@ -42,7 +42,10 @@ func request_move(pawn, direction):
 						if(pawn.mycolor != pawn_at.mycolor):
 							AudioManager.get_node("Change").play()
 						pawn.setColor(pawn_at.mycolor)
+						
 				if(pawn.mycolor == pawn_at.mycolor):
+					if(pawn.getType() == "Player" and pawn.Dash < 100.0 and not pawn.running):
+						pawn.Dash = pawn.Dash + 20.0
 					set_cellv(cell_target, CellType.EMPTY)
 					pawn_at.die(pawn)
 					deny = false
