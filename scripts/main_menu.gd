@@ -19,6 +19,7 @@ func _ready():
 
 
 func _on_Button_pressed():
+	Global.backupDash = 0
 	AudioManager.get_node("Start").play()
 	var _s = get_tree().change_scene(nextLevel)
 
@@ -33,6 +34,7 @@ func _on_HSlider_value_changed(value):
 
 
 func _on_Button2_pressed():
+	Global.backupDash = 0
 	AudioManager.get_node("Start").play()
 	Global.currLevel = "res://levels/4.tscn"
 	var _s = get_tree().change_scene("res://levels/4.tscn")

@@ -27,6 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="rps"
+config/description="1.1"
 run/main_scene="res://Start.tscn"
 boot_splash/image="res://textures/logo_self.png"
 boot_splash/use_filter=false
