@@ -30,6 +30,8 @@ func request_move(pawn, direction):
 				var pawn_name = get_cell_pawn(cell_target).name
 				print("Cell %s contains %s" % [cell_target, pawn_name])
 			CellType.ENEMY:
+				if not is_instance_valid(get_cell_pawn(cell_target)):
+					return
 				var deny = true
 				var pawn_at = get_cell_pawn(cell_target)
 			#	var pawn_name = pawn_at.name

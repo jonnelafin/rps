@@ -68,7 +68,9 @@ extents = Vector2( 32, 32 )
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 1, 1, 1, 1 )
 
-[node name="Actor" type="Node2D"]
+[node name="Player" type="Node2D" groups=[
+"players",
+]]
 position = Vector2( 32, 32 )
 z_index = 1
 script = ExtResource( 1 )
