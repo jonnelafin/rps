@@ -25,6 +25,7 @@ script = ExtResource( 4 )
 
 [node name="Player" parent="TileMap" instance=ExtResource( 3 )]
 position = Vector2( 1822.97, 96.98 )
+Dash = 10.0
 
 [node name="Object2" parent="TileMap" instance=ExtResource( 5 )]
 position = Vector2( 1504.53, 92.7177 )

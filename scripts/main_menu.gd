@@ -39,3 +39,17 @@ func _on_Button2_pressed():
 	AudioManager.get_node("Start").play()
 	Global.currLevel = "res://levels/4.tscn"
 	var _s = get_tree().change_scene("res://levels/4.tscn")
+
+
+func _on_Button3_pressed():
+	Global.backupDash = 0
+	AudioManager.get_node("Start").play()
+	Global.currLevel = "res://levels/5.tscn"
+	var _s = get_tree().change_scene("res://levels/5.tscn")
+
+
+func _on_Button4_pressed():
+	Global.backupDash = 0
+	AudioManager.get_node("Start").play()
+	Global.currLevel = "res://levels/6.tscn"
+	var _s = get_tree().change_scene("res://levels/6.tscn")

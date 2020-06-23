@@ -58,6 +58,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label9" type="Label" parent="."]
+margin_left = 29.4333
+margin_top = 375.314
+margin_right = 280.433
+margin_bottom = 417.314
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0.790039, 0.535951, 0.203682, 1 )
+text = "Or Select a Level:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label4" type="Label" parent="."]
 margin_left = 19.0
 margin_top = 680.975
@@ -152,16 +166,48 @@ __meta__ = {
 }
 
 [node name="Button2" type="Button" parent="."]
-margin_left = 32.0
-margin_top = 384.0
-margin_right = 132.0
-margin_bottom = 432.0
+margin_left = 55.1006
+margin_top = 417.314
+margin_right = 278.101
+margin_bottom = 465.314
 theme = ExtResource( 2 )
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.796078, 0.509804, 0.141176, 1 )
 custom_colors/font_color_pressed = Color( 0.972549, 0.596078, 0.0627451, 1 )
-text = "Arena"
+text = "Arena 1"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 55.1006
+margin_top = 470.961
+margin_right = 278.101
+margin_bottom = 518.961
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.796078, 0.509804, 0.141176, 1 )
+custom_colors/font_color_pressed = Color( 0.972549, 0.596078, 0.0627451, 1 )
+text = "Corridor"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="."]
+margin_left = 55.1006
+margin_top = 524.297
+margin_right = 278.101
+margin_bottom = 572.297
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.796078, 0.509804, 0.141176, 1 )
+custom_colors/font_color_pressed = Color( 0.972549, 0.596078, 0.0627451, 1 )
+text = "Arena 2"
 align = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -195,5 +241,7 @@ scale = Vector2( 0.17, 0.17 )
 texture = ExtResource( 5 )
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_Button4_pressed"]
 [connection signal="toggled" from="CheckButton" to="." method="_on_CheckButton_toggled"]
 [connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]
