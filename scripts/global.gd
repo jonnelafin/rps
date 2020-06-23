@@ -54,8 +54,9 @@ func _process(delta):
 		OS.window_fullscreen = !OS.window_fullscreen
 	if(Input.is_action_just_pressed("ui_cancel")):
 		print("Quit...")
-		get_tree().quit()
-		OS.window_fullscreen = false
+		var _s = get_tree().change_scene("res://Start.tscn")
+		#get_tree().quit()
+		#OS.window_fullscreen = false
 	if(Input.is_action_just_pressed("ui_restart")):
 		var currentScene = get_tree().get_current_scene().get_filename()
 		print(currentScene) # for Debug

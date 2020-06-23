@@ -7,9 +7,11 @@ export(bool) var AIDisabled = false
 onready var Grid = get_parent()
 onready var navigation = get_parent().get_parent()
 
+var overrideDetected
 var detected
 var sos = 0.0
 var lastAct
+var pure = true
 #var type = CellType.ENEMY
 # Declare member variables here. Examples:
 # var a = 2
@@ -20,6 +22,7 @@ var lastAct
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	update_look_direction(Vector2(1, 0))
+	$Sprite.rotation = rotation
 	type = CellType.ENEMY
 	match mycolor:
 		colors.RED:
@@ -64,12 +67,14 @@ func doAI():
 	elif(myState == state.CHASE):
 		print("		" + name + " : Chasing")
 		for actor in Global.pawns:
-			if is_instance_valid(actor) and actor is preload("res://pawns/pawn.gd") and actor.type == CellType.ENEMY:
-				if actor.global_position.distance_to(global_position) < 400:
+			if is_instance_valid(actor) and actor is preload("res://pawns/pawn.gd") and actor.type == CellType.ENEMY and actor != self and pure:
+				print(actor.global_position.distance_to(global_position))
+				if actor.global_position.distance_to(global_position) < 250:
 					print("		" + name + " alerted " + actor.name)
-					actor.detected = detected
-					actor.myState = state.CHASE
-					actor.setRot($Sprite.rotation)
+					#actor.detected = detected
+					actor.overrideDetected = detected
+					#actor.myState = state.CHASE
+					#actor.setRot($Sprite.rotation)
 		if(not (is_instance_valid(detected) and detected.is_in_group("players"))):
 			myState = state.SEARCH
 			sos = 3
@@ -104,7 +109,13 @@ func doAI():
 		#$Sprite/marker.points[1].x = -$Sprite/marker.points[1].x
 		#$Sprite/marker.points[1].y = -$Sprite/marker.points[1].y
 	#print(detected)
-	raycast()
+	if(is_instance_valid(overrideDetected)):
+		pure = false
+		detected = overrideDetected
+		overrideDetected = null
+	else:
+		raycast()
+		pure = true
 	set_process(true)
 func move_to(target_position):
 	set_process(false)
@@ -117,12 +128,12 @@ func move_to(target_position):
 	set_process(true)
 func raycast():
 	$Sprite/Line2D.visible = false#not AIDisabled
-	var to = Vector2(655, 0)
+	var to = Vector2(420, 0)
 	detected = $Sprite/RayCast2D.get_collider()
 	var last = $Sprite/RayCast2D.get_collision_point()
 	for i in range((3000/4)/2):
 		i = i * 4
-		to = Vector2(655, i-(1500)/2)
+		to = Vector2(420, i-(1500)/2)
 		$Sprite/RayCast2D.cast_to = to
 		$Sprite/RayCast2D.force_raycast_update()
 		#$Sprite/Line2D.points[1] = Vector2(500, i-500)
@@ -133,18 +144,23 @@ func raycast():
 			elif not ($Sprite/RayCast2D.get_collider() is TileMap):
 				detected = $Sprite/RayCast2D.get_collider()
 				last = $Sprite/RayCast2D.get_collision_point()
-	to = Vector2(655, 0)
+	to = Vector2(450, 0)
 	$Sprite/RayCast2D.cast_to = to
 	$Sprite/RayCast2D.force_raycast_update()
 	#detected = $Sprite/RayCast2D.get_collider()
-	$marker.visible = false
+	$Sprite/marker.visible = false
 	if(is_instance_valid(detected)):
-		$marker.visible = true
+		$Sprite/marker.visible = true
 		if not (detected is TileMap):
-			$marker.points[1] = to_local(detected.global_position)
+			$Sprite/marker.points[1] = $Sprite.to_local(detected.global_position)
 			detected = detected.get_parent()
 		else:
-			$marker.points[1] = to_local(last)
+			$Sprite/marker.points[1] = $Sprite.to_local(last)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):	
+func _process(delta):
+	rotation = 0
+	if(myState == state.CHASE):
+		$Warn.visible = true
+	else: 
+		$Warn.visible = false
 	pass

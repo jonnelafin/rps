@@ -33,6 +33,7 @@ func request_move(pawn, direction):
 				Global.currLevel = next
 				#var curDash = pawn.Dash
 				Global.backupDash = Global.player.Dash
+				Global.clearPawns()
 				var _s = get_tree().change_scene(next)
 				#Global.player.Dash = curDash
 				object_pawn.queue_free()
