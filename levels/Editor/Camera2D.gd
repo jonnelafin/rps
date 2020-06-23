@@ -28,12 +28,15 @@ func _unhandled_input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if($Camera2D.zoom < Vector2(0.1, 0.1)):
+		$Camera2D.zoom = Vector2(0.1, 0.1)
 	if(Input.is_mouse_button_pressed(2)):
 		global_position = global_position + ((last - get_viewport().get_mouse_position()) *$Camera2D.zoom)
-		print(Input.get_last_mouse_speed())
 	if Input.is_action_just_released("ui_su"):
 		$Camera2D.zoom = $Camera2D.zoom - Vector2(0.1, 0.1)
 	if Input.is_action_just_released("ui_sd"):
 		$Camera2D.zoom = $Camera2D.zoom +  Vector2(0.1, 0.1)
 	last = get_viewport().get_mouse_position()
+	if($Camera2D.zoom < Vector2(0.1, 0.1)):
+		$Camera2D.zoom = Vector2(0.1, 0.1)
 #	pass
