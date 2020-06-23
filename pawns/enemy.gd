@@ -67,12 +67,13 @@ func doAI():
 	elif(myState == state.CHASE):
 		print("		" + name + " : Chasing")
 		for actor in Global.pawns:
-			if is_instance_valid(actor) and actor is preload("res://pawns/pawn.gd") and actor.type == CellType.ENEMY and actor != self and pure:
+			if is_instance_valid(actor) and actor is preload("res://pawns/pawn.gd") and actor.type == CellType.ENEMY and actor != self and pure and not is_instance_valid(actor.overrideDetected):
 				print(actor.global_position.distance_to(global_position))
 				if actor.global_position.distance_to(global_position) < 250:
 					print("		" + name + " alerted " + actor.name)
 					#actor.detected = detected
 					actor.overrideDetected = detected
+					actor.sos = 1
 					#actor.myState = state.CHASE
 					#actor.setRot($Sprite.rotation)
 		if(not (is_instance_valid(detected) and detected.is_in_group("players"))):
@@ -89,6 +90,11 @@ func doAI():
 			var lastDir = $Sprite.rotation
 			do_move(dir)
 			$Sprite.rotation = lastDir
+			var dir2 = Vector2(randi()%3-1, randi()%3-1)
+			dir2.x = max(-1, dir.x)
+			dir2.y = max(-1, dir.y)
+			dir2.x = min(1, dir.x)
+			dir2.y = min(1, dir.y)
 			#var points = navigation.get_simple_path(global_position, detected.global_position, false)
 			#print(global_position)
 			#print(points)
@@ -101,6 +107,14 @@ func doAI():
 		sos = sos - 1
 		if(sos < 1):
 			myState = lastAct
+		else:
+			var dir = Vector2(randi()%7-3, randi()%7-3)
+			dir.x = max(-1, dir.x)
+			dir.y = max(-1, dir.y)
+			dir.x = min(1, dir.x)
+			dir.y = min(1, dir.y)
+			print(dir)
+			do_move(dir)
 #	if(is_instance_valid(Global.player)):
 #		$RayCast2D.cast_to = self.global_position - Global.player.global_position
 #	else:
@@ -112,7 +126,10 @@ func doAI():
 	if(is_instance_valid(overrideDetected)):
 		pure = false
 		detected = overrideDetected
-		overrideDetected = null
+		if(sos < 2):
+			overrideDetected = null
+		else:
+			sos = sos -1
 	else:
 		raycast()
 		pure = true
