@@ -134,3 +134,7 @@ custom_colors/font_color = Color( 1, 0, 0.960784, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Light2D" type="Light2D" parent="."]
+visible = false
+texture = ExtResource( 2 )
