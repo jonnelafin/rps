@@ -9,7 +9,7 @@ var currLevel = ""
 
 var giveDash = 20
 
-var enableJoy = false
+var enableJoy = true
 var joyIn = Vector2.ZERO
 
 var player

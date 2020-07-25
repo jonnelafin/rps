@@ -52,9 +52,11 @@ var _touch_index :int = -1
 
 func _ready() -> void:
 	if not OS.has_touchscreen_ui_hint() and visibility_mode == VisibilityMode.TOUCHSCREEN_ONLY:
-		hide()
+#		hide()
+		pass
 	if not Global.enableJoy:
-		hide()
+		#hide()
+		pass
 
 func _touch_started(event: InputEventScreenTouch) -> bool:
 	return event.pressed and _touch_index == -1

@@ -77,7 +77,7 @@ func _process(_delta):
 
 func get_input_direction():
 	if(Global.enableJoy and Global.joyIn != Vector2.ZERO):
-		return Global.joyIn
+		return Global.joyIn.snapped(Vector2(1,1))
 	return Vector2(
 		int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")),
 		int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))

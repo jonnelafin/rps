@@ -38,6 +38,7 @@ config/icon="res://textures/logo_self.png"
 
 AudioManager="*res://audio/AudioManager.tscn"
 Global="*res://scripts/Global.tscn"
+Joy="*res://scripts/Joy.tscn"
 
 [display]
 
@@ -95,6 +96,7 @@ ui_toggleFullscreen={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+pointing/emulate_mouse_from_touch=false
 
 [rendering]
 

@@ -123,6 +123,10 @@ __meta__ = {
 
 [node name="Joystick" parent="Node/Control" instance=ExtResource( 3 )]
 visible = false
+margin_left = -544.0
+margin_top = -8.0
+margin_right = -244.0
+margin_bottom = 292.0
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 margin_left = -32.0
