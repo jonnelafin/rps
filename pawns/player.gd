@@ -7,6 +7,8 @@ var running = false
 export(float) var Dash = 0.0
 
 func _ready():
+	if Global.enableJoy:
+		Joy.toggleJoy(true)
 	Global.player = self
 	if(Dash == 0):
 		Dash = Global.backupDash
@@ -42,7 +44,7 @@ func _process(_delta):
 	var xset = input_direction.x != 0
 	var yset = input_direction.y != 0
 	var sprint_mult = 1;
-	if Input.is_action_pressed("ui_sprint"):
+	if (Input.is_action_pressed("ui_sprint") or Joy.sprint):
 		running = true
 		sprint_mult = 4;
 	else:
@@ -58,20 +60,21 @@ func _process(_delta):
 	if (not input_direction):
 		return
 	update_look_direction(input_direction)
-	if (not Input.is_action_just_pressed("ui_accept")):
+	if (not (Input.is_action_just_pressed("ui_accept") or Joy.actionPressed)):
 		return
 	var needed = 9
-	if Input.is_action_pressed("ui_sprint") and Dash > needed:
+	if (Input.is_action_pressed("ui_sprint") or Joy.sprint) and Dash > needed:
 		Dash = Dash - (needed+1)
 		AudioManager.get_node("Dash").play()
 		for _i in range(4):
 			do_move(input_direction)
-	elif not Input.is_action_pressed("ui_sprint"):
+	elif not (Input.is_action_pressed("ui_sprint") or Joy.sprint):
 		AudioManager.get_node("Walk").play()
 		do_move(input_direction)
 	else:
 		bump()
 		return
+	Joy.toggleSprint(false)
 	Global.doAI()
 
 
@@ -81,7 +84,7 @@ func get_input_direction():
 	return Vector2(
 		int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")),
 		int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
-	) #* ((int(Input.is_action_pressed("ui_sprint")) * 2 ) + 1)
+	) #* ((int((Input.is_action_pressed("ui_sprint") or Joy.sprint)) * 2 ) + 1)
 
 
 func update_look_direction(direction):

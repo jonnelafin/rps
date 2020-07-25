@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Joy.gd" type="Script" id=2]
 
-[node name="Joy_layer" type="CanvasLayer"]
+[node name="Joy" type="CanvasLayer"]
+script = ExtResource( 2 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_top = 1.0
@@ -25,3 +27,26 @@ margin_left = 16.0
 margin_top = -320.0
 margin_right = 316.0
 margin_bottom = -20.0
+visibility_mode = 1
+
+[node name="Button" type="Button" parent="MarginContainer/Joystick_Control"]
+margin_left = 968.0
+margin_top = 40.0
+margin_right = 1200.0
+margin_bottom = 176.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="MarginContainer/Joystick_Control"]
+margin_left = 968.0
+margin_top = -40.0
+margin_right = 1200.0
+margin_bottom = 16.0
+toggle_mode = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="MarginContainer/Joystick_Control/Button" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="MarginContainer/Joystick_Control/Button" to="." method="_on_Button_button_up"]
+[connection signal="toggled" from="MarginContainer/Joystick_Control/Button2" to="." method="_on_Button2_toggled"]

@@ -8,6 +8,7 @@ export(String) var nextLevel = "res://levels/0.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Joy.toggleJoy(false)
 	Global.clearPawns()
 	if(OS.get_name() == "HTML5"):
 		$Label2.visible = false

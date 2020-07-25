@@ -51,9 +51,10 @@ onready var _original_position : Vector2 = _background.rect_position
 var _touch_index :int = -1
 
 func _ready() -> void:
-	if not OS.has_touchscreen_ui_hint() and visibility_mode == VisibilityMode.TOUCHSCREEN_ONLY:
+	if (not OS.has_touchscreen_ui_hint() ) and visibility_mode == VisibilityMode.TOUCHSCREEN_ONLY:
 #		hide()
-		pass
+		Global.enableJoy = false
+		print("Joystick disabled")
 	if not Global.enableJoy:
 		#hide()
 		pass

@@ -14,6 +14,12 @@ var failSafe = 200.0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	failSafe = failSafe - 0.1
+	if failSafe < 197 and Joy.actionPressed:
+		AudioManager.get_node("Start").play()
+		var currentScene = Global.currLevel
+		print(currentScene) # for Debug
+		var _s = get_tree().change_scene(currentScene)
+		print("Restart")
 #	pass
 var last = 0
 func _input(event):

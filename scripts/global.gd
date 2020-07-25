@@ -48,7 +48,6 @@ func doAI():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	if Input.is_action_just_pressed('ui_toggleFullscreen'):
 		print("fullscreen toggled")
 		OS.window_fullscreen = !OS.window_fullscreen

@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://pawns/player.gd" type="Script" id=1]
 [ext_resource path="res://textures/pawns/character.png" type="Texture" id=2]
-[ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "bump"
@@ -120,13 +119,6 @@ margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Joystick" parent="Node/Control" instance=ExtResource( 3 )]
-visible = false
-margin_left = -544.0
-margin_top = -8.0
-margin_right = -244.0
-margin_bottom = 292.0
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 margin_left = -32.0
