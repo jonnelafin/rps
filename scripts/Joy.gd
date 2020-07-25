@@ -41,3 +41,11 @@ func _on_Button_button_up():
 func _on_Button2_toggled(button_pressed):
 	sprint = button_pressed
 	print(sprint)
+
+
+func _on_TouchScreenButton_pressed():
+	actionPressed = true
+
+
+func _on_TouchScreenButton_released():
+	actionPressed = false

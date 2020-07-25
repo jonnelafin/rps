@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Joy.gd" type="Script" id=2]
+
+[sub_resource type="OpenSimplexNoise" id=2]
+period = 0.1
+
+[sub_resource type="NoiseTexture" id=1]
+noise = SubResource( 2 )
 
 [node name="Joy" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -30,10 +36,12 @@ margin_bottom = -20.0
 visibility_mode = 1
 
 [node name="Button" type="Button" parent="MarginContainer/Joystick_Control"]
+visible = false
 margin_left = 968.0
 margin_top = 40.0
 margin_right = 1200.0
 margin_bottom = 176.0
+button_mask = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -44,9 +52,17 @@ margin_top = -40.0
 margin_right = 1200.0
 margin_bottom = 16.0
 toggle_mode = true
+button_mask = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MarginContainer/Joystick_Control"]
+position = Vector2( 968, 40 )
+scale = Vector2( 0.453125, 0.203125 )
+normal = SubResource( 1 )
 [connection signal="button_down" from="MarginContainer/Joystick_Control/Button" to="." method="_on_Button_button_down"]
 [connection signal="button_up" from="MarginContainer/Joystick_Control/Button" to="." method="_on_Button_button_up"]
 [connection signal="toggled" from="MarginContainer/Joystick_Control/Button2" to="." method="_on_Button2_toggled"]
+[connection signal="pressed" from="MarginContainer/Joystick_Control/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
+[connection signal="released" from="MarginContainer/Joystick_Control/TouchScreenButton" to="." method="_on_TouchScreenButton_released"]
